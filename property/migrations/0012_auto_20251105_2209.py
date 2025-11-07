@@ -7,7 +7,7 @@ def link_owners_to_flats(apps, schema_editor):
     Flat = apps.get_model('property', 'Flat')
     Owner = apps.get_model('property', 'Owner')
 
-    for flat in Flat.objects.all():
+    for flat in Flat.objects.iterator():
         if not (flat.owner or flat.owner_pure_phone or
                 flat.owners_phonenumber):
             continue
